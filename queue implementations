@@ -11,32 +11,18 @@ int items[SIZE] is an array that will hold the queue elements, with a maximum of
 int front and int rear are used to keep track of the front and rear positions in the queue. 
 Initially, both front and rear are set to -1, indicating an empty queue.
 Constructor: CircularQueue()
-
 Initializes the circular queue. The front and rear pointers are both set to -1, indicating that the queue is empty initially.
-
- isFull()
-
+isFull()
 Checks if the circular queue is full:
-
 (front == 0 && rear == SIZE - 1): The queue is full if the front pointer is at the start of the array and the rear pointer is at the end.
-
 (rear == (front - 1) % (SIZE - 1)): The queue is also full if rear is directly behind front in a circular manner, meaning that adding an element would overwrite the front of the queue.
-
- isEmpty()
-
+isEmpty()
 Checks if the queue is empty by seeing if front is equal to -1. If front is -1, there are no elements in the queue.
-
- enqueue(int value)
-
+enqueue(int value)
 Adds an element to the queue if it's not full:
-
 If isFull() returns true, it outputs that the queue is full and doesn't add the new element.
-
 If the queue is initially empty (front == -1), both front and rear are set to 0, positioning them at the start of the queue.
-
 If rear is at the end of the array (SIZE - 1) but the front pointer is not at 0, it wraps rear back to 0 to use available space.
-
 Otherwise, rear is incremented normally.
-
 The new element value is stored at the rear position, and a message is displayed confirming the insertion.
 
