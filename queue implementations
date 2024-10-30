@@ -1,0 +1,11 @@
+#include <iostream> includes the standard input-output stream library, which enables the use of cout and cin for output and input.
+using namespace std; simplifies the code by allowing us to use standard library functions without prefixing them with std
+
+#define SIZE 5 defines a macro SIZE #define SIZE 5 defines a macro SIZE with the value 5, which is the maximum capacity of the queue.Macros like this are often used to set fixed values that don’t change, making the code more readable and maintainable
+The CircularQueue() constructor initializes front and rear to -1, indicating that the queue is empty when it is first created.
+class CircularQueue {
+private:
+int items[SIZE], front, rear;
+The CircularQueue class represents the circular queue data structure.
+int items[SIZE] is an array that will hold the queue elements, with a maximum of SIZE elements.
+int front and int rear are used to keep track of the front and rear positions in the queue. Initially, both front and rear are set to -1, indicating an empty queue.
