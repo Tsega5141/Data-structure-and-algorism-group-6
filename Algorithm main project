@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+#define SIZE 5  
+class Queue {
+private:
+    int items[SIZE], front, rear;
+
+public:
+    Queue() {
+        front = -1;
+        rear = -1;
+    }
+    void enqueue(int value) {
+        if (rear == SIZE - 1) {
+            cout << "Queue is full!\n";
+        } else {
+            if (front == -1) front = 0;
+            rear++;
+            items[rear] = value;
+            cout << "Inserted " << value << "\n";
+        }
+    }
+    void dequeue() {
+        if (front == -1) {
+            cout << "Queue is empty!\n";
+        } else {
+           cout << "Deleted " << items[front] << "\n";
+            front++;
+            if (front > rear) {
+                front = rear = -1;  
+            }
+        }
+    }
+    void display() {
+        if (front == -1) {
+         cout << "Queue is empty!\n";
+        } else {
+           cout << "Queue elements are: ";
+            for (int i = front; i <= rear; i++) {
+         cout << items[i] << " ";
+            }
+         cout << "\n";
+        }
+    }
+};
+
+int main() {
+    Queue q;
+
+    q.enqueue(1);
+    q.enqueue(2);
+    q.enqueue(3);
+    q.enqueue(4);
+    q.enqueue(5);
+    q.display();
+
+    q.dequeue();
+    q.display();
+
+    q.enqueue(6);
+    q.display();
+
+    return 0;
+}
