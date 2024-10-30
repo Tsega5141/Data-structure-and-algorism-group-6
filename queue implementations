@@ -40,3 +40,25 @@ display()
  if (isEmpty()) { cout << "Queue is empty!\n"; return; }
 Checks if the queue is empty by calling isEmpty(). If true, it outputs "Queue is empty!" and exits the function, as there’s nothing to display.
 After this check, the rest of the display() function (not shown here) would likely iterate over the elements from front to rear to print the contents of the queue in the correct order. This part would handle circular behavior by wrapping around when the end of the array is reached.
+cout << "Queue elements are:";
+This line prints a message indicating that the queue elements are about to be displayed.
+It helps in distinguishing between different outputs and makes the output more user-friendly.
+Checking the Condition: rear >= front
+The circular queue can store elements in one of two ways:
+Without wrapping - where all elements are stored sequentially from front to rear.
+With wrapping - where elements at the end of the array are followed by elements starting again from the beginning.
+To determine the storage type, the function first checks if rear >= front. If true, the queue elements are sequential, and a simple loop can display them. Otherwise, it means the queue is wrapped around, and two loops are needed to print elements in the correct order.
+The condition rear >= front checks if all elements lie sequentially between front and rear. This would happen if no wrapping has occurred.
+If this condition is true, the for loop runs from front to rear, printing each element in this range.
+The loop variable i starts from front and increments up to rear.
+Inside the loop, cout << items[i] << " "; outputs each element in the items array, separated by spaces.
+Printing Elements in Wrapped-around Order
+If rear < front, the queue has wrapped around. In this case, we need two separate loops to display the elements:
+The first loop prints elements from front to the end of the array.
+The second loop prints elements from the beginning of the array up to rear.
+The first for loop here iterates from front to SIZE - 1 (the end of the array).
+It prints each element from the front position up to the end of the array (SIZE - 1).
+This loop handles the first segment of wrapped elements, allowing us to access all elements stored between front and SIZE - 1.
+The second for loop starts at index 0 and runs up to rear, printing all elements from the beginning of the array up to rear.
+This loop handles the second segment of wrapped elements, accessing the items stored in the array between 0 and rear.
+This dual-loop structure ensures that the queue's elements are printed in the correct order, despite being stored in non-contiguous sections of the array. 
