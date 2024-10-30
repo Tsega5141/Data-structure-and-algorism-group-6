@@ -25,4 +25,18 @@ If the queue is initially empty (front == -1), both front and rear are set to 0,
 If rear is at the end of the array (SIZE - 1) but the front pointer is not at 0, it wraps rear back to 0 to use available space.
 Otherwise, rear is incremented normally.
 The new element value is stored at the rear position, and a message is displayed confirming the insertion.
-
+dequeue()
+if (isEmpty()) { cout << "Queue is empty!\n"; return; }
+Checks if the queue is empty by calling isEmpty(). If true, it outputs "Queue is empty!" and exits the function without doing anything further.
+cout << "Deleted " << items[front] << "\n";
+Prints the element at the front of the queue, indicating it will be removed.
+if (front == rear) { front = rear = -1; }
+Checks if there is only one element in the queue (when front and rear are the same). If true, it sets both front and rear to -1, indicating the queue is now empty after removing this element.
+else if (front == SIZE - 1) { front = 0; }
+Checks if the front pointer is at the end of the array (SIZE - 1). If so, it wraps front back to 0 to use available space at the start (circular behavior).
+else { front++; }
+If neither of the above conditions are true, it simply increments front to the next position, moving it forward by one.
+display()
+ if (isEmpty()) { cout << "Queue is empty!\n"; return; }
+Checks if the queue is empty by calling isEmpty(). If true, it outputs "Queue is empty!" and exits the function, as there’s nothing to display.
+After this check, the rest of the display() function (not shown here) would likely iterate over the elements from front to rear to print the contents of the queue in the correct order. This part would handle circular behavior by wrapping around when the end of the array is reached.
