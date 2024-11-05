@@ -62,3 +62,17 @@ This loop handles the first segment of wrapped elements, allowing us to access a
 The second for loop starts at index 0 and runs up to rear, printing all elements from the beginning of the array up to rear.
 This loop handles the second segment of wrapped elements, accessing the items stored in the array between 0 and rear.
 This dual-loop structure ensures that the queue's elements are printed in the correct order, despite being stored in non-contiguous sections of the array. 
+The purpose of the code is to implement a circular queue data structure,
+which is a type of queue where elements are added at the rear and removed from the front, and the queue wraps around in a circular fashion within a fixed-size array.
+This circular design allows efficient use of space by reusing empty slots when elements are dequeued, rather than shifting elements.
+Key Features of the Circular Queue:
+1. Efficient Space Usage: By using a fixed-size array and wrapping around, it maximizes space efficiency without reallocating memory.
+2. Queue Operations:
+Enqueue: Adds an element to the rear. If the queue is full, it shows an error message.
+Dequeue: Removes an element from the front. If the queue is empty, it shows an error message.
+3. Check Functions:
+isFull: Checks if the queue is full by comparing front and rear positions.
+isEmpty: Checks if the queue is empty by seeing if the front pointer is -1.
+This implementation is helpful in scenarios where a fixed-size, efficient circular data buffer is needed, 
+such as buffering data in streaming applications or managing tasks in a round-robin scheduling system.
+
